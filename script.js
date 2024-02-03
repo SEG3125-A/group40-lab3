@@ -54,7 +54,6 @@ const products = [
     glutenFree: true,
     organic: true,
     category: "dairy",
-
     imageUrl: "cheese.png",
   },
   {
@@ -64,7 +63,6 @@ const products = [
     glutenFree: true,
     organic: false,
     category: "dairy",
-
     imageUrl: "egg.png",
   },
   {
@@ -73,7 +71,6 @@ const products = [
     vegetarian: true,
     glutenFree: true,
     category: "vegetables",
-
     organic: true,
     imageUrl: "lettuce.png",
   },
@@ -83,7 +80,6 @@ const products = [
     vegetarian: true,
     glutenFree: true,
     category: "fruits",
-
     organic: false,
     imageUrl: "orange.png",
   },
@@ -93,7 +89,6 @@ const products = [
     vegetarian: true,
     glutenFree: true,
     category: "vegetables",
-
     organic: true,
     imageUrl: "potato.png",
   },
@@ -128,7 +123,6 @@ let maxPrice = 10;
 
 // Sort by price
 function displayProducts(filteredProducts = products) {
-  // Default to the full products list if no parameter is provided
   const productsList = filteredProducts
     .filter(
       (product) =>
@@ -201,11 +195,11 @@ function displayCart() {
   document.getElementById("cart-items").innerHTML = cartHtml;
 }
 function filterByCategory(category) {
-  let filteredProducts =
-    category === "all"
-      ? products
-      : products.filter((product) => product.category === category);
-  displayProducts(filteredProducts); // Now correctly passes the filtered list to displayProducts
+  let filteredProducts = products.filter((product) => {
+    if (category === "all") return true;
+    return product.category === category;
+  });
+  displayProducts(filteredProducts);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
