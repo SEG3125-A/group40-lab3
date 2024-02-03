@@ -103,6 +103,8 @@ const userPreferences = {
   organic: false,
 };
 
+let maxPrice = 10;
+
 // Sort by price
 function displayProducts() {
   const filteredProducts = products
@@ -110,7 +112,8 @@ function displayProducts() {
       (product) =>
         (userPreferences.vegetarian ? product.vegetarian : true) &&
         (userPreferences.glutenFree ? product.glutenFree : true) &&
-        (userPreferences.organic ? product.organic : true)
+        (userPreferences.organic ? product.organic : true) &&
+        product.price <= maxPrice
     )
     .sort((a, b) => a.price - b.price);
   const productsList = filteredProducts
@@ -132,6 +135,16 @@ function displayProducts() {
   document.getElementById("products-list").innerHTML = productsList;
 }
 
+document.getElementById("price-range").addEventListener("input", function () {
+  maxPrice = Number(this.value);
+  updatePriceRange(this.value);
+  displayProducts();
+});
+function updatePriceRange(value) {
+  document.getElementById(
+    "price-range-value"
+  ).textContent = `Price Range: $0 - $${value}`;
+}
 // Shopping cart array
 const cart = [];
 

@@ -32,6 +32,19 @@
         <input type="checkbox" id="organic" name="organic" />
       </section>
 
+      <div class="range">
+        <label for="price-range">Price Range:</label>
+        <input
+          type="range"
+          id="price-range"
+          name="price-range"
+          min="0"
+          max="10"
+          oninput="updatePriceRange(value)"
+        />
+        <span id="price-range-value">$0 - $10</span>
+      </div>
+
       <section id="products">
         <h2>Our Products</h2>
         <div id="products-list"></div>
