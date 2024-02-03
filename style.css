@@ -106,3 +106,56 @@ footer {
   max-width: 100px;
   height: auto;
 }
+/* Style for the slider container */
+.range-slider {
+  display: flex;
+  align-items: center; /* Centers the slider vertically */
+  margin: 20px 0;
+}
+
+/* Removes the default style for the slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20%; /* Full width of the container */
+  height: 4px; /* Height of the track */
+  background: #ddd; /* Background of the track */
+  outline: none;
+  margin: 0 15px; /* Space on the sides of the slider */
+}
+
+/* Styles the thumb of the slider */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40px; /* Width of the thumb */
+  height: 40px; /* Height of the thumb */
+  background: #ff0099; /* Background of the thumb */
+  cursor: pointer;
+  border-radius: 50%;
+  margin-top: 0px; /* Aligns the thumb with the track */
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 30px;
+  height: 30px;
+  background: #4caf50;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+/* Styles the label for the slider */
+.range-slider label {
+  font-size: 16px; /* Larger font size for visibility */
+  margin-right: 10px; /* Space before the slider */
+}
+
+/* Style for the price range value display */
+#price-range-value {
+  font-size: 16px; /* Larger font size for visibility */
+  padding-left: 10px; /* Space after the slider */
+}
+
+.range {
+  font-weight: bold;
+}
