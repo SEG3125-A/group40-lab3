@@ -25,7 +25,7 @@ const products = [
   },
   {
     name: "Chicken",
-    price: 9.99,
+    price: 5.99,
     vegetarian: false,
     glutenFree: true,
     organic: false,
@@ -33,7 +33,7 @@ const products = [
   },
   {
     name: "Milk",
-    price: 5.49,
+    price: 3.49,
     vegetarian: true,
     glutenFree: true,
     organic: false,
@@ -49,7 +49,7 @@ const products = [
   },
   {
     name: "Eggs",
-    price: 6.0,
+    price: 2.0,
     vegetarian: false,
     glutenFree: true,
     organic: false,
@@ -97,8 +97,6 @@ const products = [
   },
 ];
 
-let maxPrice = 10;
-
 const userPreferences = {
   vegetarian: false,
   glutenFree: false,
@@ -112,8 +110,7 @@ function displayProducts() {
       (product) =>
         (userPreferences.vegetarian ? product.vegetarian : true) &&
         (userPreferences.glutenFree ? product.glutenFree : true) &&
-        (userPreferences.organic ? product.organic : true) &&
-        product.price <= maxPrice
+        (userPreferences.organic ? product.organic : true)
     )
     .sort((a, b) => a.price - b.price);
   const productsList = filteredProducts
@@ -134,18 +131,6 @@ function displayProducts() {
     .join("");
   document.getElementById("products-list").innerHTML = productsList;
 }
-
-function updatePriceRange(value) {
-  document.getElementById(
-    "price-range-value"
-  ).textContent = `Price Range: $0 - $${value}`;
-}
-
-document.getElementById("price-range").addEventListener("input", function () {
-  maxPrice = Number(this.value);
-  updatePriceRange(this.value);
-  displayProducts();
-});
 
 // Shopping cart array
 const cart = [];
