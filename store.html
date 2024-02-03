@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>GrocerySpace - Online Grocery Store</title>
+    <link
+      rel="stylesheet"
+      href="style.css"
+      href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>GrocerySpace</h1>
+      <nav>
+        <ul>
+          <li><a href="#customer">Customer Page</a></li>
+          <li><a href="#products">Products Page</a></li>
+          <li><a href="#cart">Cart Page</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="customer">
+        <h2>Customer Preferences</h2>
+        <label for="vegetarian">Vegetarian</label>
+        <input type="checkbox" id="vegetarian" name="vegetarian" />
+        <label for="glutenFree">Gluten-Free</label>
+        <input type="checkbox" id="glutenFree" name="glutenFree" />
+        <label for="organic">Organic</label>
+        <input type="checkbox" id="organic" name="organic" />
+      </section>
+
+      <section id="products">
+        <h2>Our Products</h2>
+        <div id="products-list"></div>
+      </section>
+
+      <section id="cart">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Website designed by Bariq Talib</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
