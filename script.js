@@ -5,6 +5,7 @@ const products = [
     vegetarian: true,
     glutenFree: true,
     organic: true,
+    imageUrl: "apple.png",
   },
   {
     name: "Bread",
@@ -12,6 +13,7 @@ const products = [
     vegetarian: true,
     glutenFree: false,
     organic: false,
+    imageUrl: "bread.png",
   },
   {
     name: "Carrots",
@@ -19,6 +21,7 @@ const products = [
     vegetarian: true,
     glutenFree: true,
     organic: true,
+    imageUrl: "carrot.png",
   },
   {
     name: "Chicken",
@@ -26,6 +29,7 @@ const products = [
     vegetarian: false,
     glutenFree: true,
     organic: false,
+    imageUrl: "chicken.png",
   },
   {
     name: "Milk",
@@ -33,6 +37,7 @@ const products = [
     vegetarian: true,
     glutenFree: true,
     organic: false,
+    imageUrl: "milk.png",
   },
   {
     name: "Cheese",
@@ -40,6 +45,7 @@ const products = [
     vegetarian: true,
     glutenFree: true,
     organic: true,
+    imageUrl: "cheese.png",
   },
   {
     name: "Eggs",
@@ -47,6 +53,7 @@ const products = [
     vegetarian: false,
     glutenFree: true,
     organic: false,
+    imageUrl: "egg.png",
   },
   {
     name: "Lettuce",
@@ -54,6 +61,7 @@ const products = [
     vegetarian: true,
     glutenFree: true,
     organic: true,
+    imageUrl: "lettuce.png",
   },
   {
     name: "Oranges",
@@ -61,6 +69,7 @@ const products = [
     vegetarian: true,
     glutenFree: true,
     organic: false,
+    imageUrl: "orange.png",
   },
   {
     name: "Potatoes",
@@ -68,6 +77,7 @@ const products = [
     vegetarian: true,
     glutenFree: true,
     organic: true,
+    imageUrl: "potato.png",
   },
   {
     name: "Tomatoes",
@@ -75,6 +85,7 @@ const products = [
     vegetarian: true,
     glutenFree: true,
     organic: false,
+    imageUrl: "tomato.png",
   },
   {
     name: "Cucumber",
@@ -82,6 +93,7 @@ const products = [
     vegetarian: true,
     glutenFree: true,
     organic: true,
+    imageUrl: "cucumber.png",
   },
 ];
 
@@ -105,6 +117,9 @@ function displayProducts() {
     .map(
       (product) => `
         <div class="product">
+        <img src="${product.imageUrl}" alt="${
+        product.name
+      }" class="product-image">
             <h3>${product.name}</h3>
             <p>Price: $${product.price.toFixed(2)}</p>
             <button onclick="addToCart('${product.name}', ${

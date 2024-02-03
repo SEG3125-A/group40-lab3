@@ -101,3 +101,8 @@ footer {
 .cart-item button:hover {
   background-color: #a81927;
 }
+
+.product-image {
+  max-width: 100px;
+  height: auto;
+}
