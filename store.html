@@ -9,6 +9,7 @@
       href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
     />
   </head>
+
   <body>
     <header>
       <h1>GrocerySpace</h1>
@@ -20,6 +21,15 @@
         </ul>
       </nav>
     </header>
+    <div class="search-container">
+      <input
+        type="text"
+        id="product-search"
+        placeholder="Search for apples, milk, bread..."
+        class="search-input"
+      />
+      <button class="search-button" onclick="searchProducts()">Search</button>
+    </div>
 
     <main>
       <section id="customer">
@@ -31,6 +41,16 @@
         <label for="organic">Organic</label>
         <input type="checkbox" id="organic" name="organic" />
       </section>
+
+      <div>
+        <select id="category-select" onchange="filterByCategory(this.value)">
+          <option value="all">All</option>
+          <option value="fruits">Fruits</option>
+          <option value="meat">Meat</option>
+          <option value="vegetables">Vegetables</option>
+          <option value="vegetables">dairy</option>
+        </select>
+      </div>
 
       <div class="range">
         <label for="price-range">Price Range:</label>

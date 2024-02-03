@@ -135,22 +135,63 @@ input[type="range"]::-webkit-slider-thumb {
   background: #ff0099;
   border-radius: 50%;
   margin-top: 0px;
+}
 
-  input[type="range"]::-moz-range-thumb {
-    width: 30px;
-    height: 30px;
-    background: #4caf50;
-    cursor: pointer;
-    border-radius: 50%;
-  }
+input[type="range"]::-moz-range-thumb {
+  width: 30px;
+  height: 30px;
+  background: #4caf50;
+  cursor: pointer;
+  border-radius: 50%;
+}
 
-  .range-slider label {
-    font-size: 16px;
-    margin-right: 10px;
-  }
+.range-slider label {
+  font-size: 16px;
+  margin-right: 10px;
+}
 
-  #price-range-value {
-    font-size: 16px;
-    padding-left: 10px;
-  }
+#price-range-value {
+  font-size: 16px;
+  padding-left: 10px;
+}
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.search-input {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #4caf50;
+  border-right: none;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-button {
+  padding: 10px 20px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-button:hover {
+  background: #367c39;
+}
+select#category-select {
+  align-content: center;
+  width: auto;
+  padding: 8px;
+  border: 2px solid #014d03;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+select#category-select:hover {
+  background-color: #7472fb;
 }

@@ -6,12 +6,15 @@ const products = [
     glutenFree: true,
     organic: true,
     imageUrl: "apple.png",
+    category: "fruits",
   },
   {
     name: "Bread",
     price: 2.35,
     vegetarian: true,
     glutenFree: false,
+    category: "dairy",
+
     organic: false,
     imageUrl: "bread.png",
   },
@@ -21,6 +24,8 @@ const products = [
     vegetarian: true,
     glutenFree: true,
     organic: true,
+    category: "fruits",
+
     imageUrl: "carrot.png",
   },
   {
@@ -29,6 +34,8 @@ const products = [
     vegetarian: false,
     glutenFree: true,
     organic: false,
+    category: "meat",
+
     imageUrl: "chicken.png",
   },
   {
@@ -38,6 +45,7 @@ const products = [
     glutenFree: true,
     organic: false,
     imageUrl: "milk.png",
+    category: "dairy",
   },
   {
     name: "Cheese",
@@ -45,6 +53,8 @@ const products = [
     vegetarian: true,
     glutenFree: true,
     organic: true,
+    category: "dairy",
+
     imageUrl: "cheese.png",
   },
   {
@@ -53,6 +63,8 @@ const products = [
     vegetarian: false,
     glutenFree: true,
     organic: false,
+    category: "dairy",
+
     imageUrl: "egg.png",
   },
   {
@@ -60,6 +72,8 @@ const products = [
     price: 1.5,
     vegetarian: true,
     glutenFree: true,
+    category: "vegetables",
+
     organic: true,
     imageUrl: "lettuce.png",
   },
@@ -68,6 +82,8 @@ const products = [
     price: 3.0,
     vegetarian: true,
     glutenFree: true,
+    category: "fruits",
+
     organic: false,
     imageUrl: "orange.png",
   },
@@ -76,6 +92,8 @@ const products = [
     price: 2.25,
     vegetarian: true,
     glutenFree: true,
+    category: "vegetables",
+
     organic: true,
     imageUrl: "potato.png",
   },
@@ -84,6 +102,8 @@ const products = [
     price: 2.5,
     vegetarian: true,
     glutenFree: true,
+    category: "vegetables",
+
     organic: false,
     imageUrl: "tomato.png",
   },
@@ -94,6 +114,7 @@ const products = [
     glutenFree: true,
     organic: true,
     imageUrl: "cucumber.png",
+    category: "vegetables",
   },
 ];
 
@@ -106,8 +127,9 @@ const userPreferences = {
 let maxPrice = 10;
 
 // Sort by price
-function displayProducts() {
-  const filteredProducts = products
+function displayProducts(filteredProducts = products) {
+  // Default to the full products list if no parameter is provided
+  const productsList = filteredProducts
     .filter(
       (product) =>
         (userPreferences.vegetarian ? product.vegetarian : true) &&
@@ -115,21 +137,20 @@ function displayProducts() {
         (userPreferences.organic ? product.organic : true) &&
         product.price <= maxPrice
     )
-    .sort((a, b) => a.price - b.price);
-  const productsList = filteredProducts
+    .sort((a, b) => a.price - b.price)
     .map(
       (product) => `
         <div class="product">
-        <img src="${product.imageUrl}" alt="${
+          <img src="${product.imageUrl}" alt="${
         product.name
       }" class="product-image">
-            <h3>${product.name}</h3>
-            <p>Price: $${product.price.toFixed(2)}</p>
-            <button onclick="addToCart('${product.name}', ${
+          <h3>${product.name}</h3>
+          <p>Price: $${product.price.toFixed(2)}</p>
+          <button onclick="addToCart('${product.name}', ${
         product.price
       })">Add to Cart</button>
         </div>
-    `
+      `
     )
     .join("");
   document.getElementById("products-list").innerHTML = productsList;
@@ -178,6 +199,13 @@ function displayCart() {
         <div class="total">Total: $${total}</div>
     `;
   document.getElementById("cart-items").innerHTML = cartHtml;
+}
+function filterByCategory(category) {
+  let filteredProducts =
+    category === "all"
+      ? products
+      : products.filter((product) => product.category === category);
+  displayProducts(filteredProducts); // Now correctly passes the filtered list to displayProducts
 }
 
 document.addEventListener("DOMContentLoaded", () => {
